@@ -1,0 +1,248 @@
+:root{
+    --main-color:#232931 ;
+    --text-color: #f1f1f1;
+    --price-color:rgba(214, 226, 43, 0.582);
+    --price-txt-color:#161A23;
+}
+
+
+.w-65{
+    width: 65%;
+}
+
+body{
+    background-color: #37474f;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header{
+    width: 100%;
+    height: 200px;
+}
+
+nav{
+    background-color: var(--main-color);
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 80%;
+    position: sticky;
+    top: 0;
+    z-index: 333;
+    color: var(--text-color);
+}
+
+nav .logo {
+    font-size: 1.7rem;
+    width: 25%;
+}
+
+nav li {
+    transition: 0.3s all ease-in;
+}
+
+nav li:hover{
+    color: var(--price-color);
+}
+
+.active{
+    color: var(--price-color);
+}
+
+nav .bars{
+    display: none;
+    width: 40%;
+    cursor: pointer;
+    font-size: 1.6rem;
+  }
+
+.item{
+    border: 1px solid var(--price-txt-color);
+    border-radius: 10px;
+    padding: 4px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+}
+
+.item:hover{
+    transform: scale(1.07);
+}
+
+.item .game-catig{
+    text-align: center;
+    min-height: 160px;
+}
+
+.bg-made{
+    background-color: var(--price-color);
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.game-plat-p{
+    background-color: var(--price-color) ;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+}
+
+.game-plat{
+    margin-top: 15px;
+    border-top: 1px solid var(--price-color);
+    padding-top: 10px;
+}
+
+.opacity{
+    opacity: 0;
+}
+
+.links-style{
+    flex-direction: column;
+    text-align: right;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+/* game-detailes */
+.game-detailes-logo-title{
+    font-size: 1.5rem;
+}
+
+.fa-xmark{
+    cursor: pointer;
+}
+
+.show-more{
+    background-color: transparent;
+    border: 1px solid goldenrod;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.5s all ease-in;
+}
+
+.show-more:hover{
+    background-color: goldenrod;
+    border: 1px solid transparent;
+    border-radius: 0;
+}
+
+
+/* loader style */
+
+.load-container{
+    position: fixed;
+    inset: 0;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite
+  }
+  .loader::before , .loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #FFF;
+    animation: prixClipFix 2s linear infinite ;
+  }
+  .loader::after{
+    inset: 8px;
+    transform: rotate3d(90, 90, 0, 180deg );
+    border-color: var(--price-color);
+  }
+
+  @keyframes rotate {
+    0%   {transform: rotate(0deg)}
+    100%   {transform: rotate(360deg)}
+  }
+
+  @keyframes prixClipFix {
+      0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+      50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+      75%, 100%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+  }
+
+
+  /*responsive*/
+
+  @media screen and (max-width: 1050px) {
+    nav .bars{
+        display: block;
+        display: flex;
+        justify-content: end;
+        padding-right: 40px;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    nav .logo{
+        width: 35%;
+    }
+  }
+
+
+  @media screen and (max-width: 1200px){
+
+    nav .logo{
+        width: 35%;
+    }
+
+    nav .links {
+        width: 65%;
+    }
+
+    .game-info{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .game-info .game-title{
+        width: 100%;
+    }
+
+  }
+
+  @media screen and (max-width: 906px){
+
+   
+    nav .logo{   
+        width: 60%;
+    }
+
+    .item:hover{
+        transform: scale(1);
+    }
+  }
+
+  @media screen and (max-width: 535px){
+    
+    
+    nav .logo{
+        width: 75%;
+        font-size: 1.5rem;
+    }
+  }
